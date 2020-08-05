@@ -16,7 +16,7 @@ composer require takethelead/laravel-storyblok-file-proxy
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="TakeTheLead\Skeleton\SkeletonServiceProvider" --tag="config"
+php artisan vendor:publish --provider="TakeTheLead\LaravelStoryblokFileProxy\LaravelStoryblokFileProxyServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:
