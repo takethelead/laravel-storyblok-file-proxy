@@ -5,7 +5,7 @@ namespace TakeTheLead\Skeleton;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Spatie\Skeleton\Skeleton
+ * @see \TakeTheLead\Skeleton\Skeleton
  */
 class SkeletonFacade extends Facade
 {
