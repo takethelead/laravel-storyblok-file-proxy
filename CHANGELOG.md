@@ -2,6 +2,6 @@
 
 All notable changes to `laravel-storyblok-file-proxy` will be documented in this file
 
-## 1.0.0 - 202X-XX-XX
+## 0.0.1 - 2020-08-05
 
-- initial release
+- Beta release
