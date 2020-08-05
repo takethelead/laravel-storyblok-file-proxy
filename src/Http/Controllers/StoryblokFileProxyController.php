@@ -3,17 +3,23 @@
 namespace TakeTheLead\LaravelStoryblokFileProxy\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use TakeTheLead\LaravelStoryblokFileProxy\StoryblokUrlFacade;
+use TakeTheLead\LaravelStoryblokFileProxy\StoryblokUrl;
+use Exception;
 
 class StoryblokFileProxyController extends Controller
 {
-    public function __invoke(Request $request, string $type, string $slug)
+    public function __invoke(Request $request, StoryblokUrl $storyblokUrl, string $type, string $slug): Response
     {
-        $file = StoryblokUrlFacade::toStoryblok($type, $slug);
+        $fileUrl = $storyblokUrl->toStoryblok($type, $slug);
 
-        $type = pathinfo($file, PATHINFO_EXTENSION);
-        header('Content-Type:'.$type);
-        echo file_get_contents($file);
+        try {
+            $fileContents = file_get_contents($fileUrl);
+        } catch (Exception $exception) {
+            abort(404);
+        }
+
+        return response($fileContents, 200, ['Content-Type' => pathinfo($fileUrl, PATHINFO_EXTENSION)]);
     }
 }

@@ -18,21 +18,14 @@ class StoryblokUrl
         ]);
     }
 
-    public function toStoryblok(string $type, string $slug)
+    public function toStoryblok(string $type, string $slug): string
     {
-        $proxySettings = collect(config('laravel-storyblok-file-proxy.proxy_urls'))
-            ->first(function (array $proxyUrl) use ($type) {
-                return $proxyUrl['type'] === $type;
-            });
-
-        if (is_null($proxySettings)) {
-            throw new \Exception('unkown proxy type');
-        }
+        $proxySettings = $this->getProxySettingsByType($type);
 
         return $proxySettings['url'] . '/' . $slug;
     }
 
-    protected function getProxySettings(string $url): array
+    protected function getProxySettingsByUrl(string $url): array
     {
         $proxySettings = collect(config('laravel-storyblok-file-proxy.proxy_urls'))
             ->first(function (array $proxyUrl) use ($url) {
@@ -41,6 +34,20 @@ class StoryblokUrl
 
         if (is_null($proxySettings)) {
             throw new ProxySettingsNotFoundException("No proxy settings found for $url");
+        }
+
+        return $proxySettings;
+    }
+
+    protected function getProxySettingsByType(string $type): array
+    {
+        $proxySettings = collect(config('laravel-storyblok-file-proxy.proxy_urls'))
+            ->first(function (array $proxyUrl) use ($type) {
+                return $proxyUrl['type'] === $type;
+            });
+
+        if (is_null($proxySettings)) {
+            throw new ProxySettingsNotFoundException("No proxy settings found for type $type");
         }
 
         return $proxySettings;
