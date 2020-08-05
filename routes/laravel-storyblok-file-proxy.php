@@ -6,4 +6,5 @@ use TakeTheLead\LaravelStoryblokFileProxy\Http\Controllers\StoryblokFileProxyCon
 Route::get(config('laravel-storyblok-file-proxy.base_url') . '/{type}/{slug}', StoryblokFileProxyController::class)
     ->where('type', collect(config('laravel-storyblok-file-proxy.proxy_urls'))->map->type->implode('|'))
     ->where('slug', '.*')
+    ->middleware(config('laravel-storyblok-file-proxy.middleware'))
     ->name('storyblok.fileProxy');

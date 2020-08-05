@@ -8,7 +8,7 @@ class StoryblokUrl
 {
     public function toLocal(string $url): string
     {
-        $proxySettings = $this->getProxySettings($url);
+        $proxySettings = $this->getProxySettingsByUrl($url);
 
         $slug = collect(explode($proxySettings['url'], $url))->last();
 
