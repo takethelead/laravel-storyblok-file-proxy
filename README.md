@@ -23,14 +23,72 @@ This is the contents of the published config file:
 
 ```php
 return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Base url
+    |--------------------------------------------------------------------------
+    |
+    | Define the base url to proxy files through.
+    |
+    | Ex. 'files' will result in https://appurl.test/files/{fileSlug}
+    |
+    */
+
+    'base_url' => 'files',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Middleware
+    |--------------------------------------------------------------------------
+    |
+    | Define the route middleware (groups) where the proxy route should be
+    | wrapped in.
+    |
+    |
+    */
+
+    'middleware' => [
+        'web',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Proxy urls
+    |--------------------------------------------------------------------------
+    |
+    | Define all url types that should be formatted. Each proxy should
+    | have at least a "type" and "url" property. The defined base url
+    | will be swapped with a local url.
+    |
+    */
+
+    'proxy_urls' => [
+        [
+            'type' => 'images',
+            'url' => 'https://img2.storyblok.com',
+        ],
+        [
+            'type' => 'other',
+            'url' => 'https://a.storyblok.com',
+        ],
+    ],
+
 ];
+
 ```
 
 ## Usage
 
+### Proxy route
+The package will proxy files through the application, therefor it registeres a route in the application.
+You can define a custom base slug in the config file, this way you can prevent collision with your existing routes.
+
+Through the config file you can also specify the route middleware (groups) that should be applied to the route. 
+
+### Convert Storyblok urls to local urls
 ``` php
-$skeleton = new TakeTheLead\Skeleton();
-echo $skeleton->echoPhrase('Hello, Take The Lead!');
+StoryblokUrlFacade::toLocal($file['filename']);
 ```
 
 ## Testing
