@@ -1,10 +1,10 @@
 <?php
 
-namespace TakeTheLead\Skeleton;
+namespace TakeTheLead\LaravelStoryblokFileProxy;
 
 use Illuminate\Support\ServiceProvider;
 
-class SkeletonServiceProvider extends ServiceProvider
+class LaravelStoryblokFileProxyServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -13,10 +13,16 @@ class SkeletonServiceProvider extends ServiceProvider
                 __DIR__ . '/../config/laravel-storyblok-file-proxy.php' => config_path('laravel-storyblok-file-proxy.php'),
             ], 'config');
         }
+
+        $this->loadRoutesFrom(__DIR__ . '/../routes/laravel-storyblok-file-proxy.php');
     }
 
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/laravel-storyblok-file-proxy.php', 'laravel-storyblok-file-proxy');
+
+        $this->app->bind('storyblokUrl', function () {
+            return new StoryblokUrl();
+        });
     }
 }

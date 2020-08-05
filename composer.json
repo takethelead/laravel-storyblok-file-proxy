@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "TakeTheLead\\Skeleton\\": "src"
+            "TakeTheLead\\LaravelStoryblokFileProxy\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "TakeTheLead\\Skeleton\\Tests\\": "tests"
+            "TakeTheLead\\LaravelStoryblokFileProxy\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,10 +47,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "TakeTheLead\\Skeleton\\SkeletonServiceProvider"
+                "TakeTheLead\\LaravelStoryblokFileProxy\\LaravelStoryblokFileProxyServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "TakeTheLead\\Skeleton\\SkeletonFacade"
+                "StoryblokUrl": "TakeTheLead\\LaravelStoryblokFileProxy\\StoryblokUrlFacade"
             }
         }
     },
