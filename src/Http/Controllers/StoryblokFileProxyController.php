@@ -11,12 +11,19 @@ use TakeTheLead\LaravelStoryblokFileProxy\StoryblokUrl;
 
 class StoryblokFileProxyController extends Controller
 {
+    protected Client $guzzleClient;
+
+    public function __construct(Client $client)
+    {
+        $this->guzzleClient = $client;
+    }
+
     public function __invoke(Request $request, StoryblokUrl $storyblokUrl, string $type, string $slug): Response
     {
         $fileUrl = $storyblokUrl->toStoryblok($type, $slug);
 
         try {
-            $response = (new Client())->get($fileUrl);
+            $response = $this->guzzleClient->get($fileUrl);
         } catch (ClientException $exception) {
             abort($exception->getCode());
         }
