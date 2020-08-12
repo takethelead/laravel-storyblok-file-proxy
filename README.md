@@ -4,7 +4,8 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/takethelead/laravel-storyblok-file-proxy/Tests?label=tests)](https://github.com/takethelead/laravel-storyblok-file-proxy/actions?query=workflow%3Atests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/takethelead/laravel-storyblok-file-proxy.svg?style=flat-square)](https://packagist.org/packages/takethelead/laravel-storyblok-file-proxy)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Convert Storyblok file urls to local urls and proxy them through your Laravel application.
+You can easilly add extra middlewares to the proxy route, for example to add extra authorization checks.
 
 ## Installation
 
@@ -81,7 +82,7 @@ return [
 ## Usage
 
 ### Proxy route
-The package will proxy files through the application, therefor it registeres a route in the application.
+The package will proxy files through the application, therefore it registers a route in the application.
 You can define a custom base slug in the config file, this way you can prevent collision with your existing routes.
 
 Through the config file you can also specify the route middleware (groups) that should be applied to the route. 
