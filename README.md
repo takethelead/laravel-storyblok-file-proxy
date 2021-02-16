@@ -89,7 +89,7 @@ Through the config file you can also specify the route middleware (groups) that 
 
 ### Convert Storyblok urls to local urls
 ``` php
-StoryblokUrlFacade::toLocal($file['filename']);
+\StoryblokUrl::toLocal($file['filename']);
 ```
 
 ## Testing
