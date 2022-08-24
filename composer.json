@@ -17,18 +17,18 @@
     ],
     "require": {
         "php": "^8.0.0",
-        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/guzzle": "^7.1",
         "illuminate/container": "^8.0|^9.0",
         "illuminate/http": "^8.0|^9.0",
         "illuminate/routing": "^8.0|^9.0",
         "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
+        "friendsofphp/php-cs-fixer": "^3.10",
         "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.0",
-        "psalm/plugin-laravel": "^1.2",
-        "vimeo/psalm": "^3.11"
+        "psalm/plugin-laravel": "^1.2|^2.0",
+        "vimeo/psalm": "^3.11|^4.0"
     },
     "autoload": {
         "psr-4": {
