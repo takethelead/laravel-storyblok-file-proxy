@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-storyblok-file-proxy` will be documented in this file
 
+## 1.2.0 - 2021-02-21
+- Add Laravel 9 & php 8 support
+
 ## 1.1.1 - 2021-02-21
 - Updated readme
 
