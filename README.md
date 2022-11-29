@@ -5,7 +5,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/takethelead/laravel-storyblok-file-proxy.svg?style=flat-square)](https://packagist.org/packages/takethelead/laravel-storyblok-file-proxy)
 
 Convert Storyblok file urls to local urls and proxy them through your Laravel application.
-You can easilly add extra middlewares to the proxy route, for example to add extra authorization checks.
+You can easily add extra middlewares to the proxy route, for example to add extra authorization checks.
 
 ## Installation
 
