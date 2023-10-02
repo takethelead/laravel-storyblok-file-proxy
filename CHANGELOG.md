@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-storyblok-file-proxy` will be documented in this file
 
+## 1.3.0 - 2023-10-02
+- Add Laravel 10 support
+- Dropped Laravel 8 support
+- Force nesbot/carbon:^2.64.1 in tests
+
 ## 1.2.0 - 2021-02-21
 - Add Laravel 9 & php 8 support
 
