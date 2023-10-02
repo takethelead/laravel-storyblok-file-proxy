@@ -44,11 +44,11 @@ return [
     'proxy_urls' => [
         [
             'type' => 'images',
-            'url' => 'https://en.wikipedia.org/wiki/.google#/media/File:Google_2015_logo.svg',
+            'url' => 'https://img2.storyblok.com',
         ],
         [
             'type' => 'other',
-            'url' => 'https://en.wikipedia.org/wiki/.google#/media/File:Google_2015_logo.svg',
+            'url' => 'https://a.storyblok.com',
         ],
     ],
 
